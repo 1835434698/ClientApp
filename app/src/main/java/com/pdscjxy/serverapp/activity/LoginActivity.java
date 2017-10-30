@@ -14,7 +14,6 @@ import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.pdscjxy.serverapp.MainActivity;
 import com.pdscjxy.serverapp.R;
 import com.pdscjxy.serverapp.activity.base.BaseActivity;
 import com.pdscjxy.serverapp.manager.Constant;
@@ -67,6 +66,7 @@ public class LoginActivity extends BaseActivity {
         setContentView(R.layout.activity_login);
         hideTitle();
         init();
+        startCallbackActivity(new Intent(LoginActivity.this, MainActivityFragment.class));
     }
 
     private void init() {
@@ -136,13 +136,13 @@ public class LoginActivity extends BaseActivity {
             @Override
             public void onResp(JSONObject respons, String uri) {
                 stopProgressDialog();
-                startCallbackActivity(new Intent(LoginActivity.this, MainActivity.class));
+                startCallbackActivity(new Intent(LoginActivity.this, MainActivityFragment.class));
             }
 
             @Override
             public void onErr(String respons, String uri) {
                 stopProgressDialog();
-                startCallbackActivity(new Intent(LoginActivity.this, MainActivity.class));
+                startCallbackActivity(new Intent(LoginActivity.this, MainActivityFragment.class));
             }
         }, true);
     }
