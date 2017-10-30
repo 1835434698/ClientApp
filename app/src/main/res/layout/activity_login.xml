@@ -4,8 +4,19 @@
     android:gravity="center"
     android:paddingRight="@dimen/dp_25"
     android:paddingLeft="@dimen/dp_25"
+    android:paddingBottom="@dimen/dp_60"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
+
+
+    <TextView
+        android:textColor="@color/color_F79833"
+        android:textSize="@dimen/sp_30"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="@dimen/dp_40"
+        android:text="欢迎来到欢乐订"/>
+
     <RelativeLayout
         android:layout_marginBottom="@dimen/dp_5"
         android:layout_width="match_parent"
@@ -109,7 +120,7 @@
         android:textSize="@dimen/sp_16"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@drawable/button_background"
+        android:background="@drawable/button_background_yellow"
         android:text="登录"/>
     <TextView
         android:gravity="center"

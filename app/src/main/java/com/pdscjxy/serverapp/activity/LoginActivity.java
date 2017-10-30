@@ -1,14 +1,11 @@
 package com.pdscjxy.serverapp.activity;
 
-import android.Manifest;
 import android.content.Intent;
 import android.graphics.Typeface;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
-import android.text.Editable;
 import android.text.InputType;
 import android.text.TextUtils;
-import android.text.TextWatcher;
 import android.text.method.HideReturnsTransformationMethod;
 import android.view.View;
 import android.widget.CheckBox;
@@ -28,18 +25,40 @@ import org.json.JSONObject;
 import java.util.HashMap;
 import java.util.Map;
 
+import butterknife.BindView;
+import butterknife.OnClick;
+import butterknife.OnTextChanged;
+
 /**
  * Created by tangzy on 17/10/29.
  */
 
-public class LoginActivity extends BaseActivity implements View.OnClickListener {
+public class LoginActivity extends BaseActivity {
 
     private static final String TAG = "LoginActivity";
-    private TextView tv_login, tv_register, tv_forget_psw;
-    private CheckBox chbox_remember;
-    private CheckedTextView cb_show_pw_img;
-    private EditText et_phone_number, et_password;
-    private ImageView iv_login_mobile_delete, iv_password_delete;
+
+    @BindView(R.id.tv_login)
+    TextView tv_login;
+    @BindView(R.id.tv_register)
+    TextView tv_register;
+    @BindView(R.id.tv_forget_psw)
+    TextView tv_forget_psw;
+
+    @BindView(R.id.chbox_remember)
+    CheckBox chbox_remember;
+
+    @BindView(R.id.cb_show_pw_img)
+    CheckedTextView cb_show_pw_img;
+
+    @BindView(R.id.et_phone_number)
+    EditText et_phone_number;
+    @BindView(R.id.et_password)
+    EditText et_password;
+
+    @BindView(R.id.iv_login_mobile_delete)
+    ImageView iv_login_mobile_delete;
+    @BindView(R.id.iv_password_delete)
+    ImageView iv_password_delete;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -51,113 +70,64 @@ public class LoginActivity extends BaseActivity implements View.OnClickListener 
     }
 
     private void init() {
-        tv_login = (TextView) findViewById(R.id.tv_login);
-        tv_login.setOnClickListener(this);
-        tv_register = (TextView) findViewById(R.id.tv_register);
-        tv_register.setOnClickListener(this);
-        tv_forget_psw = (TextView) findViewById(R.id.tv_forget_psw);
-        tv_forget_psw.setOnClickListener(this);
-        iv_login_mobile_delete = (ImageView) findViewById(R.id.iv_login_mobile_delete);
-        iv_login_mobile_delete.setOnClickListener(this);
-        iv_password_delete = (ImageView) findViewById(R.id.iv_password_delete);
-        iv_password_delete.setOnClickListener(this);
-
-
-        cb_show_pw_img = (CheckedTextView) findViewById(R.id.cb_show_pw_img);
-        cb_show_pw_img.setOnClickListener(this);
-
-        chbox_remember = (CheckBox) findViewById(R.id.chbox_remember);
-        et_phone_number = (EditText) findViewById(R.id.et_phone_number);
         et_phone_number.setFilters(Constant.FILTER_LIMIT_PHONE_INPUT);
-        et_phone_number.addTextChangedListener(new TextWatcher() {
-            @Override
-            public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
-            }
-
-            @Override
-            public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
-            }
-
-            @Override
-            public void afterTextChanged(Editable editable) {
-                if (TextUtils.isEmpty(editable)){
-                    iv_login_mobile_delete.setVisibility(View.INVISIBLE);
-                }else {
-                    iv_login_mobile_delete.setVisibility(View.VISIBLE);
-                }
-            }
-        });
-
-        et_password = (EditText) findViewById(R.id.et_password);
-        et_password.addTextChangedListener(new TextWatcher() {
-            @Override
-            public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
-            }
-
-            @Override
-            public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
-            }
-
-            @Override
-            public void afterTextChanged(Editable editable) {
-                if (TextUtils.isEmpty(editable)){
-                    iv_password_delete.setVisibility(View.INVISIBLE);
-                }else {
-                    iv_password_delete.setVisibility(View.VISIBLE);
-                }
-            }
-        });
-
     }
 
-    @Override
-    public void onClick(View view) {
-        switch (view.getId()){
-            case R.id.cb_show_pw_img:
-                cb_show_pw_img.toggle();
-                if (cb_show_pw_img.isChecked()) {
-//                    //如果选中，显示密码
-                    et_password.setTransformationMethod(HideReturnsTransformationMethod.getInstance());
-                    et_password.setInputType((InputType.TYPE_TEXT_VARIATION_VISIBLE_PASSWORD));
-                    et_password.setTypeface(Typeface.SANS_SERIF);
-                } else {
-//                    //否则隐藏密码
-                    et_password.setInputType(InputType.TYPE_CLASS_TEXT | InputType.TYPE_TEXT_VARIATION_PASSWORD);
-                    et_password.setTypeface(Typeface.SANS_SERIF);
-                }
-                break;
-            case R.id.iv_login_mobile_delete:
-                et_phone_number.setText("");
 
-                break;
-            case R.id.iv_password_delete:
-                et_password.setText("");
-
-                break;
-            case R.id.tv_forget_psw:
-                Intent intent = new Intent(LoginActivity.this, RegisterActivity.class);
-                intent.putExtra(RegisterActivity.MOBILE, "18501942558");
-                startCallbackActivity(intent);
-
-                break;
-            case R.id.tv_login:
-                checkPermission(new CheckPermListener() {
-                    @Override
-                    public void superPermission() {
-                        login();
-                    }
-                }, R.string.ask_again, Manifest.permission.READ_PHONE_STATE,Manifest.permission.WRITE_EXTERNAL_STORAGE);
-
-
-                break;
-            case R.id.tv_register:
-                startCallbackActivity(new Intent(LoginActivity.this, RegisterActivity.class));
-                break;
+    @OnTextChanged(value = R.id.et_phone_number)
+    void phonewNumberChange(CharSequence text){
+        if (TextUtils.isEmpty(text)){
+            iv_login_mobile_delete.setVisibility(View.INVISIBLE);
+        }else {
+            iv_login_mobile_delete.setVisibility(View.VISIBLE);
         }
     }
 
-    private void login() {
+    @OnTextChanged(value = R.id.et_password)
+    void passwordChange(CharSequence text){
+        if (TextUtils.isEmpty(text)){
+            iv_password_delete.setVisibility(View.INVISIBLE);
+        }else {
+            iv_password_delete.setVisibility(View.VISIBLE);
+        }
+    }
 
+
+    @OnClick(R.id.cb_show_pw_img)
+    void showPsw() {
+        cb_show_pw_img.toggle();
+        if (cb_show_pw_img.isChecked()) {
+//                    //如果选中，显示密码
+            et_password.setTransformationMethod(HideReturnsTransformationMethod.getInstance());
+            et_password.setInputType((InputType.TYPE_TEXT_VARIATION_VISIBLE_PASSWORD));
+            et_password.setTypeface(Typeface.SANS_SERIF);
+        } else {
+//                    //否则隐藏密码
+            et_password.setInputType(InputType.TYPE_CLASS_TEXT | InputType.TYPE_TEXT_VARIATION_PASSWORD);
+            et_password.setTypeface(Typeface.SANS_SERIF);
+        }
+    }
+    @OnClick(R.id.iv_login_mobile_delete)
+    void mobileDele() {
+        et_phone_number.setText("");
+    }
+    @OnClick(R.id.iv_password_delete)
+    void passwordDele() {
+        et_password.setText("");
+    }
+    @OnClick(R.id.tv_forget_psw)
+    void forgetPsw() {
+        Intent intent = new Intent(LoginActivity.this, RegisterActivity.class);
+        intent.putExtra(RegisterActivity.MOBILE, "18501942558");
+        startCallbackActivity(intent);
+    }
+    @OnClick(R.id.tv_register)
+    void register() {
+        startCallbackActivity(new Intent(LoginActivity.this, RegisterActivity.class));
+    }
+
+    @OnClick(R.id.tv_login)
+    void login() {
         startProgressDialog();
         final Map<String, String> httpParams =  new HashMap<>();
         httpParams.put("userName","1234567890");

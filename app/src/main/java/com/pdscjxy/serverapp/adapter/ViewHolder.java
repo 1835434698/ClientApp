@@ -123,7 +123,6 @@ public class ViewHolder {
      * @return
      */
     public ViewHolder setBackground(int viewId, Drawable drawable) {
-        ;
         getView(viewId).setBackground(drawable);
         return this;
     }
