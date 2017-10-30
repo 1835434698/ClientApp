@@ -1,23 +1,16 @@
-package com.pdscjxy.serverapp;
+package com.pdscjxy.serverapp.activity;
 
-import android.Manifest;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.TextView;
-import android.widget.Toast;
 
-import com.pdscjxy.serverapp.activity.OrderActivity;
+import com.pdscjxy.serverapp.R;
 import com.pdscjxy.serverapp.activity.base.BaseActivity;
-import com.pdscjxy.serverapp.manager.Constant;
 import com.pdscjxy.serverapp.net.OkHttpManager;
 import com.pdscjxy.serverapp.util.Logger;
-import com.pdscjxy.serverapp.util.Toasts;
 
 import org.json.JSONObject;
-
-import java.util.HashMap;
-import java.util.Map;
 
 
 public class MainActivity extends BaseActivity {

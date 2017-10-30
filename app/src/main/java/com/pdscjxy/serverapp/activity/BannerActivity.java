@@ -7,7 +7,6 @@ import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentStatePagerAdapter;
 import android.support.v4.view.ViewPager;
 
-import com.pdscjxy.serverapp.MainActivity;
 import com.pdscjxy.serverapp.R;
 import com.pdscjxy.serverapp.activity.base.BaseActivity;
 import com.pdscjxy.serverapp.fragment.BannerItemFragment;

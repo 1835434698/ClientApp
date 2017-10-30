@@ -18,6 +18,7 @@ public class FirstFragment extends BaseFragment {
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
         setView(R.layout.fragment_first);
+
     }
 
 }
