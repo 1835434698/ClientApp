@@ -1,11 +1,276 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical" android:layout_width="match_parent"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:background="@color/color_F0F0F2"
     android:layout_height="match_parent">
+    <LinearLayout
+        android:gravity="center_horizontal"
+        android:paddingTop="@dimen/dp_50"
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <ImageView
+            android:id="@+id/iv_head"
+            android:src="@mipmap/ic_launcher"
+            android:layout_width="@dimen/dp_120"
+            android:layout_height="@dimen/dp_120" />
+        <TextView
+            android:id="@+id/tv_yqno"
+            android:text="邀请码：88888888"
+            android:paddingTop="@dimen/dp_10"
+            android:layout_marginBottom="@dimen/dp_10"
+            android:textSize="@dimen/sp_13"
+            android:textColor="@color/color_7DC5CB"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+        <LinearLayout
+            android:gravity="center_horizontal"
+            android:background="@android:color/white"
+            android:layout_marginLeft="@dimen/dp_4"
+            android:layout_marginRight="@dimen/dp_4"
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+                <TextView
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="@dimen/dp_15"
+                    android:text="我的订单"
+                    android:textSize="@dimen/sp_15"
+                    android:textColor="@android:color/black"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="2222222222"/>
+                 <TextView
+                     android:id="@+id/tv_order_all"
+                    android:text="全部"
+                     android:layout_centerVertical="true"
+                     android:padding="@dimen/dp_10"
+                     android:drawablePadding="@dimen/dp_5"
+                     android:layout_alignParentRight="true"
+                     android:drawableRight="@mipmap/ico_right"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
 
-</LinearLayout>
+            </RelativeLayout>
+            <LinearLayout
+                android:orientation="horizontal"
+                android:layout_marginBottom="@dimen/dp_15"
+                android:layout_marginTop="@dimen/dp_5"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+                <LinearLayout
+                    android:id="@+id/ll_order_1"
+                    android:orientation="vertical"
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:layout_height="wrap_content">
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:src="@mipmap/ic_launcher"/>
+                    <TextView
+                        android:text="待付款"
+                        style="@style/first_text_three"/>
+
+                </LinearLayout>
+                <LinearLayout
+                    android:id="@+id/ll_order_2"
+                    android:orientation="vertical"
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:layout_height="wrap_content">
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:src="@mipmap/ic_launcher"/>
+                    <TextView
+                        android:text="收藏"
+                        style="@style/first_text_three"/>
+
+                </LinearLayout>
+                <LinearLayout
+                    android:id="@+id/ll_order_3"
+                    android:orientation="vertical"
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:layout_height="wrap_content">
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:src="@mipmap/ic_launcher"/>
+                    <TextView
+                        android:text="待点评"
+                        style="@style/first_text_three"/>
+
+                </LinearLayout>
+                <LinearLayout
+                    android:id="@+id/ll_order_4"
+                    android:orientation="vertical"
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:layout_height="wrap_content">
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:src="@mipmap/ic_launcher"/>
+                    <TextView
+                        android:text="退款/转让"
+                        style="@style/first_text_three"/>
+
+                </LinearLayout>
+            </LinearLayout>
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:gravity="center_horizontal"
+            android:layout_marginTop="@dimen/dp_10"
+            android:background="@android:color/white"
+            android:layout_marginLeft="@dimen/dp_4"
+            android:layout_marginRight="@dimen/dp_4"
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+                <TextView
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="@dimen/dp_15"
+                    android:text="我的钱包"
+                    android:textSize="@dimen/sp_15"
+                    android:textColor="@android:color/black"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
+
+                <TextView
+                    android:id="@+id/tv_wallt_all"
+                    android:text="全部"
+                    android:layout_centerVertical="true"
+                    android:padding="@dimen/dp_10"
+                    android:drawablePadding="@dimen/dp_5"
+                    android:layout_alignParentRight="true"
+                    android:drawableRight="@mipmap/ico_right"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
+
+            </RelativeLayout>
+            <LinearLayout
+                android:orientation="horizontal"
+                android:layout_marginBottom="@dimen/dp_15"
+                android:layout_marginTop="@dimen/dp_5"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+                <LinearLayout
+                    android:orientation="vertical"
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:layout_height="wrap_content">
+                    <LinearLayout
+                        android:orientation="horizontal"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content">
+
+                        <TextView
+                            android:id="@+id/tv_wallt_1"
+                            android:text="0"
+                            style="@style/first_text_four"/>
+
+                        <TextView
+                            android:text="元"
+                            style="@style/first_text_five"/>
+                    </LinearLayout>
+                    <TextView
+                        android:text="现金"
+                        style="@style/first_text_six"/>
+
+                </LinearLayout>
+                <LinearLayout
+                    android:orientation="vertical"
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:layout_height="wrap_content">
+                    <LinearLayout
+                        android:orientation="horizontal"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content">
+
+                        <TextView
+                            android:id="@+id/tv_wallt_2"
+                            android:text="0"
+                            style="@style/first_text_four"/>
+
+                        <TextView
+                            android:text="个"
+                            style="@style/first_text_five"/>
+                    </LinearLayout>
+                    <TextView
+                        android:text="红包卡券"
+                        style="@style/first_text_six"/>
+
+                </LinearLayout>
+                <LinearLayout
+                    android:orientation="vertical"
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:layout_height="wrap_content">
+                    <LinearLayout
+                        android:orientation="horizontal"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content">
+
+                        <TextView
+                            android:id="@+id/tv_wallt_3"
+                            android:text="0"
+                            style="@style/first_text_four"/>
+
+                        <TextView
+                            android:text="元"
+                            style="@style/first_text_five"/>
+                    </LinearLayout>
+                    <TextView
+                        android:text="礼品卡"
+                        style="@style/first_text_six"/>
+
+                </LinearLayout>
+                <LinearLayout
+                    android:orientation="vertical"
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:layout_height="wrap_content">
+                    <LinearLayout
+                        android:orientation="horizontal"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content">
+
+                        <TextView
+                            android:id="@+id/tv_wallt_4"
+                            android:text="0"
+                            style="@style/first_text_four"/>
+
+                        <TextView
+                            android:text="分"
+                            style="@style/first_text_five"/>
+                    </LinearLayout>
+                    <TextView
+                        android:text="积分"
+                        style="@style/first_text_six"/>
+
+                </LinearLayout>
+            </LinearLayout>
+        </LinearLayout>
+
+    </LinearLayout>
+
+</ScrollView>
