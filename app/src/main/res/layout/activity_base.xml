@@ -25,6 +25,17 @@
                 android:layout_centerVertical="true"
                 android:src="@mipmap/back_translation"/>
             <TextView
+                android:id="@+id/tv_title_left"
+                android:visibility="gone"
+                android:gravity="center"
+                android:layout_toRightOf="@id/title_left_img"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:textColor="@android:color/black"
+                android:layout_marginLeft="@dimen/dp_10"
+                android:textSize="@dimen/sp_19"
+                android:text="设置"/>
+            <TextView
                 android:layout_centerInParent="true"
                 android:id="@+id/sec_title_tv"
                 android:gravity="center"

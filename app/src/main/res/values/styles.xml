@@ -97,6 +97,22 @@
         <item name="android:layout_width">wrap_content</item>
         <item name="android:layout_height">wrap_content</item>
     </style>
+    <style name="set_text_one">
+        <item name="android:textSize">@dimen/sp_16</item>
+        <item name="android:layout_marginTop">@dimen/dp_10</item>
+        <item name="android:layout_marginBottom">@dimen/dp_10</item>
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_centerVertical">true</item>
+        <item name="android:textColor">@android:color/black</item>
+    </style>
+    <style name="set_img_one">
+        <item name="android:padding">@dimen/dp_5</item>
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_alignParentRight">true</item>
+        <item name="android:layout_centerVertical">true</item>
+    </style>
     <style name="first_ImageView_one">
         <item name="android:src">@mipmap/ico_black_down</item>
         <item name="android:layout_marginTop">@dimen/dp_5</item>

@@ -61,7 +61,7 @@ public class BaseActivity extends AppCompatActivity implements IActivity, EasyPe
 //}
 
 //    @Bind(R.id.sec_title_tv)
-    private TextView mTitleView;
+    private TextView mTitleView, tv_title_left;
     // 标题栏左侧，右侧图标
 //    @Bind(R.id.title_left_img)
     private ImageView mLeftBtn;
@@ -169,6 +169,7 @@ public class BaseActivity extends AppCompatActivity implements IActivity, EasyPe
     }
 //
     public void initTitleBar() {
+        tv_title_left = (TextView) findViewById(R.id.tv_title_left);
         mTitleView = (TextView) findViewById(R.id.sec_title_tv);
         mLeftBtn = (ImageView) findViewById(R.id.title_left_img);
         titleLayout = (LinearLayout) findViewById(R.id.included_title);
@@ -191,6 +192,17 @@ public class BaseActivity extends AppCompatActivity implements IActivity, EasyPe
             titleLayout.setBackgroundColor(getResources().getColor(R.color.color_EAEAEA));
             setWindowStatusBarColor(this, R.color.color_EAEAEA);
         }else if (TWO_LAYOUT.equals(layout)){
+
+        }
+    }
+    public void setLeftTitle(String title){
+        if (tv_title_left != null){
+            if (TextUtils.isEmpty(title)){
+                tv_title_left.setVisibility(View.GONE);
+            }else {
+                tv_title_left.setText(title);
+                tv_title_left.setVisibility(View.VISIBLE);
+            }
 
         }
     }

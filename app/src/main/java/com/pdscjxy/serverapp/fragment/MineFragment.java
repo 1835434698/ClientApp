@@ -1,15 +1,22 @@
 package com.pdscjxy.serverapp.fragment;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
+import com.jakewharton.rxbinding.view.RxView;
 import com.pdscjxy.serverapp.R;
+import com.pdscjxy.serverapp.activity.SetActivity;
+import com.pdscjxy.serverapp.activity.base.BaseActivity;
 import com.pdscjxy.serverapp.fragment.base.BaseFragment;
 
+import java.util.concurrent.TimeUnit;
+
 import butterknife.BindView;
+import rx.functions.Action1;
 
 /**
  * Created by Administrator on 2017/10/19.
@@ -46,5 +53,17 @@ public class MineFragment  extends BaseFragment {
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
         setView(R.layout.fragment_mine);
+
+        listener();
+    }
+
+    private void listener() {
+        RxView.clicks(iv_head).throttleFirst(1, TimeUnit.SECONDS).subscribe(new Action1<Void>() {
+            @Override
+            public void call(Void aVoid) {
+                Intent intent = new Intent(getActivity(), SetActivity.class);
+                ((BaseActivity)getActivity()).startCallbackActivity(intent);
+            }
+        });
     }
 }
