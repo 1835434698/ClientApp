@@ -14,4 +14,5 @@ public class MainApp extends Application {
         super.onCreate();
         Constant.app = this;
     }
+
 }

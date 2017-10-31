@@ -122,13 +122,27 @@
     </style>
 
 
-    <style name="first_text_one">
-        <item name="android:textSize">@dimen/sp_13</item>
-        <item name="android:textColor">@android:color/black</item>
+    <style name="first_text">
+        <item name="android:textSize">@dimen/sp_11</item>
         <item name="android:layout_width">wrap_content</item>
         <item name="android:layout_height">wrap_content</item>
         <item name="android:paddingTop">@dimen/dp_15</item>
         <item name="android:paddingBottom">@dimen/dp_5</item>
+    </style>
+
+    <style name="first_text_one" parent="first_text">
+        <item name="android:textColor">@android:color/black</item>
+    </style>
+
+    <style name="first_text_two" parent="first_text">
+        <item name="android:textColor">@color/color_737270</item>
+    </style>
+    <style name="first_ImageView_one">
+        <item name="android:src">@mipmap/ico_black_down</item>
+        <item name="android:layout_marginTop">@dimen/dp_5</item>
+        <item name="android:layout_width">@dimen/dp_20</item>
+        <item name="android:layout_height">@dimen/dp_20</item>
+        <item name="android:padding">@dimen/dp_5</item>
     </style>
 
 
