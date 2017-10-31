@@ -98,6 +98,7 @@ public class FirstFragment extends BaseFragment {
             @Override
             public void ZdyScrollViewListener() {
                 Logger.d(TAG, "More");
+                lv_home.onLoading();
                 new Thread(new Runnable() {
                     @Override
                     public void run() {
